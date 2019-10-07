@@ -16,13 +16,14 @@
         app:layout_constraintTop_toTopOf="parent"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         tools:layout_editor_absoluteY="605dp"
-        android:layout_marginTop="132dp"
+        android:layout_marginTop="100dp"
         tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textregisname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="none"
             android:hint="Name" />
     </com.google.android.material.textfield.TextInputLayout>
 
