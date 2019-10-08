@@ -28,7 +28,7 @@ class DashboarCusFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(DashboarCusViewModel::class.java)
         if (savedInstanceState == null) {
             childFragmentManager.beginTransaction()
-                .replace(R.id.constMainAct,DashboardListFragment.newInstance())
+                .replace(R.id.constMainAct,DashboardNearby.newInstance())
                 .commitNow()
         }
     }
