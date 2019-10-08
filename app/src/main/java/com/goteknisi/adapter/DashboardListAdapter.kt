@@ -11,11 +11,12 @@ import com.bumptech.glide.request.RequestOptions
 import com.goteknisi.R
 import com.goteknisi.utils.Datalis
 
-class DashboardListAdapter (val listValue: ArrayList<Datalis>) : RecyclerView.Adapter<DashboardListAdapter.GridViewHolder>() {
+class DashboardListAdapter(val listValue: ArrayList<Datalis>) :
+    RecyclerView.Adapter<DashboardListAdapter.GridViewHolder>() {
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, p1: Int): GridViewHolder {
-        val view: View = LayoutInflater.from(viewGroup.context).
-            inflate(R.layout.template_grid_dashboard,viewGroup, false)
+        val view: View = LayoutInflater.from(viewGroup.context)
+            .inflate(R.layout.template_grid_dashboard, viewGroup, false)
         return GridViewHolder(view)
     }
 
@@ -30,9 +31,9 @@ class DashboardListAdapter (val listValue: ArrayList<Datalis>) : RecyclerView.Ad
         return listValue.size
     }
 
-    inner class GridViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView){
+    inner class GridViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var imgPhoto: ImageView = itemView.findViewById(R.id.imageView)
-        var textview : TextView = itemView.findViewById(R.id.textView)
+        var textview: TextView = itemView.findViewById(R.id.textView)
     }
 
 }

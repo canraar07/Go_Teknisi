@@ -14,9 +14,10 @@ import kotlinx.android.synthetic.main.fragment_dashboard_list.*
 
 class DashboardListFragment : Fragment() {
 
-    private val arrayName = arrayOf("Jhono 1","Jhono 2")
-    private val arrayImg = intArrayOf(R.drawable.jhon,R.drawable.jhon)
+    private val arrayName = arrayOf("Jhono 1", "Jhono 2")
+    private val arrayImg = intArrayOf(R.drawable.jhon, R.drawable.jhon)
     val lisdata = ArrayList<Datalis>()
+
     companion object {
         fun newInstance() = DashboardListFragment()
     }
@@ -36,9 +37,9 @@ class DashboardListFragment : Fragment() {
         recycleDashboard.adapter = gridAdapter
     }
 
-    fun creatDumy(){
-        for (i in arrayName.indices){
-            lisdata.add(Datalis(arrayName[i],arrayImg[i]))
+    fun creatDumy() {
+        for (i in arrayName.indices) {
+            lisdata.add(Datalis(arrayName[i], arrayImg[i]))
         }
     }
 }

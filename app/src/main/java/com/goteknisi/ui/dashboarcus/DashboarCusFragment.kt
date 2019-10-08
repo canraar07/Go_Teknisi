@@ -16,26 +16,27 @@ class DashboarCusFragment : Fragment() {
 
     private lateinit var viewModel: DashboarCusViewModel
 
-    private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
-        when (item.itemId) {
-            R.id.navigation_Home -> {
-                childFragmentManager.beginTransaction()
-                    .replace(R.id.constMainAct,DashboardListFragment.newInstance())
-                    .commitNow()
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.navigation_nearby -> {
-                childFragmentManager.beginTransaction()
-                    .replace(R.id.constMainAct,DashboardNearby.newInstance())
-                    .commitNow()
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.navigation_history -> {
+    private val mOnNavigationItemSelectedListener =
+        BottomNavigationView.OnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.navigation_Home -> {
+                    childFragmentManager.beginTransaction()
+                        .replace(R.id.constMainAct, DashboardListFragment.newInstance())
+                        .commitNow()
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.navigation_nearby -> {
+                    childFragmentManager.beginTransaction()
+                        .replace(R.id.constMainAct, DashboardNearby.newInstance())
+                        .commitNow()
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.navigation_history -> {
 
+                }
             }
+            false
         }
-        false
-    }
 
 
     override fun onCreateView(
@@ -51,7 +52,7 @@ class DashboarCusFragment : Fragment() {
         bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         if (savedInstanceState == null) {
             childFragmentManager.beginTransaction()
-                .replace(R.id.constMainAct,DashboardListFragment.newInstance())
+                .replace(R.id.constMainAct, DashboardListFragment.newInstance())
                 .commitNow()
         }
     }

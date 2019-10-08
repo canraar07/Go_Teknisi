@@ -13,11 +13,12 @@ import com.google.android.gms.maps.model.LatLng
 import com.goteknisi.R
 
 
-class DashboardNearby : Fragment(),OnMapReadyCallback {
+class DashboardNearby : Fragment(), OnMapReadyCallback {
 
-    lateinit var mygmap : GoogleMap
+    lateinit var mygmap: GoogleMap
+
     companion object {
-        var mapFragment : SupportMapFragment?=null
+        var mapFragment: SupportMapFragment? = null
         fun newInstance() = DashboardNearby()
     }
 
@@ -36,10 +37,10 @@ class DashboardNearby : Fragment(),OnMapReadyCallback {
         if (googleMap != null) {
             mygmap = googleMap
         }
-       mygmap?.uiSettings?.isMyLocationButtonEnabled = true
-       mygmap?.isMyLocationEnabled = true
-       val lng = LatLng(40.7143528, -74.0059731)
-       mygmap?.moveCamera(CameraUpdateFactory.newLatLng(lng))
+        mygmap?.uiSettings?.isMyLocationButtonEnabled = true
+        mygmap?.isMyLocationEnabled = true
+        val lng = LatLng(-6.1800175, 106.8398761)
+        mygmap?.moveCamera(CameraUpdateFactory.newLatLng(lng))
     }
 
 }
