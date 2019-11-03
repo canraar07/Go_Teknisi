@@ -2,14 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/navigation_Home"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_home_white"
         android:title="Home" />
     <item
         android:id="@+id/navigation_nearby"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_my_location"
         android:title="Nearby" />
     <item
         android:id="@+id/navigation_history"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_star_white"
         android:title="Favorit" />
 </menu>
