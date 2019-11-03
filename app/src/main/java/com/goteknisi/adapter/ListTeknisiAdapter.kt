@@ -9,17 +9,15 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
 import com.goteknisi.DashboardListTeknisiActivity
 import com.goteknisi.R
 import com.goteknisi.utils.Datalis
 
-class DashboardListAdapter(val listValue: ArrayList<Datalis>) :
-    RecyclerView.Adapter<DashboardListAdapter.GridViewHolder>() {
-
+class ListTeknisiAdapter (val listValue: ArrayList<Datalis>) :
+    RecyclerView.Adapter<ListTeknisiAdapter.GridViewHolder>()  {
     override fun onCreateViewHolder(viewGroup: ViewGroup, p1: Int): GridViewHolder {
         val view: View = LayoutInflater.from(viewGroup.context)
-            .inflate(R.layout.template_menu_utama, viewGroup, false)
+            .inflate(R.layout.template_grid_dashboard, viewGroup, false)
         return GridViewHolder(view)
     }
 
@@ -29,13 +27,7 @@ class DashboardListAdapter(val listValue: ArrayList<Datalis>) :
             .into(holder.imgPhoto)
         holder.textview.text = listValue[position].name
         holder.cardMenu.setOnClickListener {
-            val textContent = holder.textview.text
-            if(textContent == "Ketahui Kerusakan Mu"){
 
-            }else{
-                val intent = Intent(holder.itemView.context,DashboardListTeknisiActivity::class.java)
-                holder.itemView.context.startActivity(intent)
-            }
         }
 
     }
@@ -45,9 +37,8 @@ class DashboardListAdapter(val listValue: ArrayList<Datalis>) :
     }
 
     inner class GridViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var imgPhoto: ImageView = itemView.findViewById(R.id.imageMenu)
-        var textview: TextView = itemView.findViewById(R.id.textMenu)
-        var cardMenu: CardView = itemView.findViewById(R.id.cardContent)
+        var imgPhoto: ImageView = itemView.findViewById(R.id.imageView)
+        var textview: TextView = itemView.findViewById(R.id.textView)
+        var cardMenu: CardView = itemView.findViewById(R.id.cardContentTeknisi)
     }
-
 }
