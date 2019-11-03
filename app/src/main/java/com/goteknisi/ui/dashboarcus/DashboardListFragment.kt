@@ -14,8 +14,8 @@ import kotlinx.android.synthetic.main.fragment_dashboard_list.*
 
 class DashboardListFragment : Fragment() {
 
-    private val arrayName = arrayOf("Jhono 1", "Jhono 2")
-    private val arrayImg = intArrayOf(R.drawable.jhon, R.drawable.jhon)
+    private val arrayName = arrayOf("Jhono 1", "Jhono 2", "Jhono 4", "Jhono 2")
+    private val arrayImg = intArrayOf(R.drawable.jhon, R.drawable.jhon, R.drawable.jhon, R.drawable.jhon)
     val lisdata = ArrayList<Datalis>()
 
     companion object {
@@ -32,7 +32,7 @@ class DashboardListFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         creatDumy()
-        recycleDashboard.layoutManager = GridLayoutManager(this.context, 4)
+        recycleDashboard.layoutManager = GridLayoutManager(this.context, 2)
         val gridAdapter = DashboardListAdapter(lisdata)
         recycleDashboard.adapter = gridAdapter
     }
