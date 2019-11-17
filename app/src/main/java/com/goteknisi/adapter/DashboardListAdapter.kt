@@ -11,11 +11,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.goteknisi.DashboardListTeknisiActivity
+import com.goteknisi.JenisKerusakanActivity
 import com.goteknisi.R
+import com.goteknisi.utils.DataKerusakan
 import com.goteknisi.utils.Datalis
 
 class DashboardListAdapter(val listValue: ArrayList<Datalis>) :
     RecyclerView.Adapter<DashboardListAdapter.GridViewHolder>() {
+
+
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, p1: Int): GridViewHolder {
         val view: View = LayoutInflater.from(viewGroup.context)
@@ -31,7 +35,8 @@ class DashboardListAdapter(val listValue: ArrayList<Datalis>) :
         holder.cardMenu.setOnClickListener {
             val textContent = holder.textview.text
             if(textContent == "Ketahui Kerusakan Mu"){
-
+                val intent = Intent(holder.itemView.context,JenisKerusakanActivity::class.java)
+                holder.itemView.context.startActivity(intent)
             }else{
                 val intent = Intent(holder.itemView.context,DashboardListTeknisiActivity::class.java)
                 holder.itemView.context.startActivity(intent)
