@@ -20,10 +20,6 @@ import kotlinx.android.synthetic.main.jenis_kerusakan_fragment.*
 
 class DashboardListTeknisiFragment : Fragment() {
 
-    private val arrayName = arrayOf("Jhono 1", "Jhono 2", "Jhono 4", "Jhono 2")
-    private val arrayImg = intArrayOf(R.drawable.jhon, R.drawable.jhon, R.drawable.jhon, R.drawable.jhon)
-    val lisdata = ArrayList<Datalis>()
-
     companion object {
         fun newInstance() = DashboardListTeknisiFragment()
     }
@@ -42,9 +38,13 @@ class DashboardListTeknisiFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(DashboardListTeknisiViewModel::class.java)
         recycleTeknisi.layoutManager = GridLayoutManager(this.context, 2)
         val gridAdapter = ListTeknisiAdapter()
+        progresLoading.isVisible = true
+        viewModel.getListMitra()
         viewModel.getData().observe(this, Observer<ArrayList<Datalis>> { data ->
             if(data != null){
+                gridAdapter.dataClear()
                 gridAdapter.setData(data)
+                progresLoading.isVisible = false
             }
         })
         recycleTeknisi.adapter = gridAdapter

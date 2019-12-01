@@ -1,6 +1,7 @@
 package com.goteknisi.ui.jeniskerusakan
 
 import android.content.ClipData
+import android.content.Intent
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,6 +11,7 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.goteknisi.ConfirmasiKerusakan
 import com.goteknisi.R
 import com.goteknisi.adapter.KerusakanAdapter
 import com.goteknisi.utils.DataKerusakan
@@ -53,6 +55,10 @@ class JenisKerusakanFragment : Fragment() {
         })
         list_kerusakan.layoutManager = LinearLayoutManager(this.activity)
         list_kerusakan.adapter = adapter
+        bPriksa.setOnClickListener {
+            val intent = Intent(this.context,ConfirmasiKerusakan::class.java)
+            startActivity(intent)
+        }
     }
 
 }
