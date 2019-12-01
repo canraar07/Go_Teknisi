@@ -6,13 +6,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.goteknisi.R
 import com.goteknisi.adapter.DashboardListAdapter
 import com.goteknisi.adapter.ListTeknisiAdapter
+import com.goteknisi.utils.DataKerusakan
 import com.goteknisi.utils.Datalis
 import kotlinx.android.synthetic.main.dashboard_list_teknisi_fragment.*
 import kotlinx.android.synthetic.main.fragment_dashboard_list.*
+import kotlinx.android.synthetic.main.jenis_kerusakan_fragment.*
 
 class DashboardListTeknisiFragment : Fragment() {
 
@@ -36,16 +40,14 @@ class DashboardListTeknisiFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(DashboardListTeknisiViewModel::class.java)
-        creatDumy()
         recycleTeknisi.layoutManager = GridLayoutManager(this.context, 2)
-        val gridAdapter = ListTeknisiAdapter(lisdata)
+        val gridAdapter = ListTeknisiAdapter()
+        viewModel.getData().observe(this, Observer<ArrayList<Datalis>> { data ->
+            if(data != null){
+                gridAdapter.setData(data)
+            }
+        })
         recycleTeknisi.adapter = gridAdapter
-    }
-
-    fun creatDumy() {
-        for (i in arrayName.indices) {
-            lisdata.add(Datalis(arrayName[i], arrayImg[i]))
-        }
     }
 
 }

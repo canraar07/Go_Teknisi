@@ -11,8 +11,22 @@ import com.bumptech.glide.Glide
 import com.goteknisi.R
 import com.goteknisi.utils.Datalis
 
-class ListTeknisiAdapter (val listValue: ArrayList<Datalis>) :
+class ListTeknisiAdapter:
     RecyclerView.Adapter<ListTeknisiAdapter.GridViewHolder>()  {
+
+    private val list = ArrayList<Datalis>()
+
+    fun setData(items: ArrayList<Datalis>) {
+        list.clear()
+        list.addAll(items)
+        notifyDataSetChanged()
+    }
+
+    fun dataClear() {
+        list.clear()
+        notifyDataSetChanged()
+    }
+
     override fun onCreateViewHolder(viewGroup: ViewGroup, p1: Int): GridViewHolder {
         val view: View = LayoutInflater.from(viewGroup.context)
             .inflate(R.layout.template_grid_dashboard, viewGroup, false)
@@ -21,9 +35,9 @@ class ListTeknisiAdapter (val listValue: ArrayList<Datalis>) :
 
     override fun onBindViewHolder(holder: GridViewHolder, position: Int) {
         Glide.with(holder.itemView.context)
-            .load(listValue[position].image)
+            .load(list[position].image)
             .into(holder.imgPhoto)
-        holder.textview.text = listValue[position].name
+        holder.textview.text = list[position].name
         holder.cardMenu.setOnClickListener {
 
         }
@@ -31,7 +45,7 @@ class ListTeknisiAdapter (val listValue: ArrayList<Datalis>) :
     }
 
     override fun getItemCount(): Int {
-        return listValue.size
+        return list.size
     }
 
     inner class GridViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

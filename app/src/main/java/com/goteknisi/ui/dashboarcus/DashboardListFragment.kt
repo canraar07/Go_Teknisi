@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import com.goteknisi.R
 import com.goteknisi.adapter.DashboardListAdapter
+import com.goteknisi.utils.DataItem
 import com.goteknisi.utils.Datalis
 import kotlinx.android.synthetic.main.dashboard_list_teknisi_fragment.*
 import kotlinx.android.synthetic.main.fragment_dashboard_list.*
@@ -17,7 +18,7 @@ class DashboardListFragment : Fragment() {
 
     private val arrayName = arrayOf("Ketahui Kerusakan Mu", "Lihat Teknisi")
     private val arrayImg = intArrayOf(R.drawable.question, R.drawable.technician)
-    val lisdata = ArrayList<Datalis>()
+    val lisdata = ArrayList<DataItem>()
 
     companion object {
         fun newInstance() = DashboardListFragment()
@@ -40,7 +41,7 @@ class DashboardListFragment : Fragment() {
 
     fun creatDumy() {
         for (i in arrayName.indices) {
-            lisdata.add(Datalis(arrayName[i], arrayImg[i]))
+            lisdata.add(DataItem(arrayName[i], arrayImg[i]))
         }
     }
 

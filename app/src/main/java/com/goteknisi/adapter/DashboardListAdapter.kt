@@ -13,10 +13,11 @@ import com.bumptech.glide.request.RequestOptions
 import com.goteknisi.DashboardListTeknisiActivity
 import com.goteknisi.JenisKerusakanActivity
 import com.goteknisi.R
+import com.goteknisi.utils.DataItem
 import com.goteknisi.utils.DataKerusakan
 import com.goteknisi.utils.Datalis
 
-class DashboardListAdapter(val listValue: ArrayList<Datalis>) :
+class DashboardListAdapter(val listValue: ArrayList<DataItem>) :
     RecyclerView.Adapter<DashboardListAdapter.GridViewHolder>() {
 
 
