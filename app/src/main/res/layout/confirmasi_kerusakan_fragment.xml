@@ -32,7 +32,6 @@
         android:id="@+id/calendarView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,9 +41,9 @@
         android:id="@+id/containtTgl"
         android:layout_width="250dp"
         android:layout_height="50dp"
-        android:background="@drawable/styleborder"
         android:layout_marginStart="8dp"
         android:layout_marginTop="9dp"
+        android:background="@drawable/styleborder"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recylekkerusakan"
         tools:ignore="MissingConstraints">
@@ -109,5 +108,26 @@
             tools:text="ajksjaksjak" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="textPostalAddress"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/containtTime" />
+
+    <Button
+        android:id="@+id/buttonPteknisi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="40dp"
+        android:text="Pilih Teknisi"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

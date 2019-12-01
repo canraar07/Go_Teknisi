@@ -2,6 +2,7 @@ package com.goteknisi.ui.confirmasikerusakan
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
+import android.content.Intent
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.util.Log
@@ -10,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
+import com.goteknisi.DashboardListTeknisiActivity
 import com.goteknisi.R
 import kotlinx.android.synthetic.main.confirmasi_kerusakan_fragment.*
 import java.text.SimpleDateFormat
@@ -57,6 +59,10 @@ class ConfirmasiKerusakanFragment : Fragment() {
         calendarView.setOnDateChangeListener { view, year, month, dayOfMonth ->
             textViewTgl.text = "$dayOfMonth:$month:$year"
             calendarView.isVisible=false
+        }
+        buttonPteknisi.setOnClickListener {
+            val intent = Intent(this.context,DashboardListTeknisiActivity::class.java)
+            startActivity(intent)
         }
     }
 
