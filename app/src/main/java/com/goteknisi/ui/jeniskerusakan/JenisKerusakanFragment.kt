@@ -2,6 +2,7 @@ package com.goteknisi.ui.jeniskerusakan
 
 import android.content.ClipData
 import android.content.Intent
+import android.net.Uri
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.util.Log
@@ -70,6 +71,12 @@ class JenisKerusakanFragment : Fragment() {
         })
         list_kerusakan.layoutManager = LinearLayoutManager(this.activity)
         list_kerusakan.adapter = adapter
+        bChat.setOnClickListener {
+            val smsno = Uri.parse("smsto:083898526308")
+            val sms = Intent(Intent.ACTION_VIEW,smsno)
+            sms.putExtra("sms_body", "")
+            startActivity(sms)
+        }
         bPriksa.setOnClickListener {
             val kerusakan = adapter.getDataKerusakan()
             Log.e("Data",kerusakan.toString())
