@@ -11,17 +11,33 @@ import kotlinx.android.synthetic.main.dashboar_cus_fragment.*
 class DashboarCusFragment : Fragment() {
 
     companion object {
-        fun newInstance() = DashboarCusFragment()
+        fun newInstance(
+            nama: String?,
+            notlp: String?
+        ) : DashboarCusFragment{
+            val fragment = DashboarCusFragment()
+            val bundle = Bundle().apply {
+                putString("nama",nama)
+                putString("notlp",notlp)
+            }
+            fragment.arguments = bundle
+            return fragment
+        }
     }
 
     private lateinit var viewModel: DashboarCusViewModel
+    var nama = ""
+    var notlp = ""
 
     private val mOnNavigationItemSelectedListener =
         BottomNavigationView.OnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navigation_Home -> {
                     childFragmentManager.beginTransaction()
-                        .replace(R.id.constMainAct, DashboardListFragment.newInstance())
+                        .replace(R.id.constMainAct, DashboardListFragment.newInstance(
+                            nama,
+                            notlp
+                        ))
                         .commitNow()
                     return@OnNavigationItemSelectedListener true
                 }
@@ -49,10 +65,15 @@ class DashboarCusFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(DashboarCusViewModel::class.java)
+        nama = arguments?.getString("nama").toString()
+        notlp = arguments?.getString("notlp").toString()
         bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         if (savedInstanceState == null) {
             childFragmentManager.beginTransaction()
-                .replace(R.id.constMainAct, DashboardListFragment.newInstance())
+                .replace(R.id.constMainAct, DashboardListFragment.newInstance(
+                    nama,
+                    notlp
+                ))
                 .commitNow()
         }
     }

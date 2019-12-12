@@ -24,11 +24,15 @@ class ConfirmasiKerusakanFragment : Fragment() {
 
     companion object {
         fun newInstance(
-            array: ArrayList<DatakerusakanCus>
+            array: ArrayList<DatakerusakanCus>,
+            nama : String?,
+            notlp : String?
             ) : ConfirmasiKerusakanFragment{
             val fragment = ConfirmasiKerusakanFragment()
             val bundle = Bundle().apply {
                 putParcelableArrayList("arrkerusakan",array)
+                putString("nama",nama)
+                putString("notlp",notlp)
             }
             fragment.arguments = bundle
             return fragment
@@ -49,6 +53,8 @@ class ConfirmasiKerusakanFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(ConfirmasiKerusakanViewModel::class.java)
         val arrkerusakan : java.util.ArrayList<DatakerusakanCus>? = arguments?.getParcelableArrayList("arrkerusakan")
+        val nama = arguments?.getString("nama")
+        val notlp = arguments?.getString("notlp")
         recylekkerusakan.layoutManager = LinearLayoutManager(this.activity)
         adapter = AdapterKerusakan()
         adapter.dataClear()
@@ -80,15 +86,15 @@ class ConfirmasiKerusakanFragment : Fragment() {
             calendarView.isVisible=false
         }
         buttonPteknisi.setOnClickListener {
-            val tgl = "${textTime.text} ${textViewTgl.text}"
+            val tgl = "${textTime.text} / ${textViewTgl.text}"
             val almt = editTextAlamat.text.toString()
             confirmdata.add(
-                DataConfirmPage(tgl,almt,arrkerusakan)
+                DataConfirmPage("",nama,notlp,tgl,almt,arrkerusakan)
             )
             val bundle = Bundle()
             val intent = Intent(this.context,DashboardListTeknisiActivity::class.java)
             bundle.putParcelableArrayList("datakerusakan",confirmdata)
-            intent.putExtras(intent)
+            intent.putExtras(bundle)
             startActivity(intent)
         }
     }

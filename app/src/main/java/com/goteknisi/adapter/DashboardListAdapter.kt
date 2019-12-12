@@ -1,6 +1,7 @@
 package com.goteknisi.adapter
 
 import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -36,7 +37,11 @@ class DashboardListAdapter(val listValue: ArrayList<DataItem>) :
         holder.cardMenu.setOnClickListener {
             val textContent = holder.textview.text
             if(textContent == "Ketahui Kerusakan Mu"){
+                val bundle = Bundle()
+                bundle.putString("nama",listValue[position].namacus)
+                bundle.putString("notlp",listValue[position].notlp)
                 val intent = Intent(holder.itemView.context,JenisKerusakanActivity::class.java)
+                intent.putExtras(bundle)
                 holder.itemView.context.startActivity(intent)
             }else{
                 val intent = Intent(holder.itemView.context,DashboardListTeknisiActivity::class.java)

@@ -48,8 +48,6 @@ class KerusakanAdapter : RecyclerView.Adapter<KerusakanAdapter.ListViewHolder>()
 
     class ListViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-
-
         fun bind(data : DataKerusakan,position : Int){
             with(itemView){
                 textKerusakan.text = data.kerusakan

@@ -19,9 +19,22 @@ class DashboardListFragment : Fragment() {
     private val arrayName = arrayOf("Ketahui Kerusakan Mu", "Lihat Teknisi")
     private val arrayImg = intArrayOf(R.drawable.question, R.drawable.technician)
     val lisdata = ArrayList<DataItem>()
+    var nama = ""
+    var notlp = ""
 
     companion object {
-        fun newInstance() = DashboardListFragment()
+        fun newInstance(
+            nama: String?,
+            notlp: String?
+        ) : DashboardListFragment{
+            val fragment = DashboardListFragment()
+            val bundle = Bundle().apply {
+                putString("nama",nama)
+                putString("notlp",notlp)
+            }
+            fragment.arguments = bundle
+            return fragment
+        }
     }
 
     override fun onCreateView(
@@ -33,6 +46,8 @@ class DashboardListFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        nama = arguments?.getString("nama").toString()
+        notlp = arguments?.getString("notlp").toString()
         creatDumy()
         recyleMenu.layoutManager = GridLayoutManager(this.context, 2)
         val gridAdapter = DashboardListAdapter(lisdata)
@@ -41,7 +56,7 @@ class DashboardListFragment : Fragment() {
 
     fun creatDumy() {
         for (i in arrayName.indices) {
-            lisdata.add(DataItem(arrayName[i], arrayImg[i]))
+            lisdata.add(DataItem(arrayName[i], arrayImg[i],nama,notlp))
         }
     }
 

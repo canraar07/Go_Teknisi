@@ -54,7 +54,7 @@ class DashboardListTeknisiFragment : Fragment() {
         viewModel.getData().observe(this, Observer<ArrayList<Datalis>> { data ->
             if(data != null){
                 gridAdapter.dataClear()
-                gridAdapter.setData(data)
+                gridAdapter.setData(data, dataconfirm!!)
                 progresLoading.isVisible = false
             }
         })

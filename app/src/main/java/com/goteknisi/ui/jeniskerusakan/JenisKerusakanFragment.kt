@@ -22,7 +22,18 @@ import kotlinx.android.synthetic.main.jenis_kerusakan_fragment.*
 class JenisKerusakanFragment : Fragment() {
 
     companion object {
-        fun newInstance() = JenisKerusakanFragment()
+        fun newInstance(
+            nama: String?,
+            notlp: String?
+        ) : JenisKerusakanFragment{
+            val fragment = JenisKerusakanFragment()
+            val bundle = Bundle().apply {
+                putString("nama",nama)
+                putString("notlp",notlp)
+            }
+            fragment.arguments = bundle
+            return fragment
+        }
     }
 
     private lateinit var viewModel: JenisKerusakanViewModel
@@ -39,6 +50,8 @@ class JenisKerusakanFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(JenisKerusakanViewModel::class.java)
+        val nama = arguments?.getString("nama")
+        val notlp = arguments?.getString("notlp")
         adapter = KerusakanAdapter()
         adapter.dataClear()
         progressBar.isVisible=true
@@ -63,6 +76,8 @@ class JenisKerusakanFragment : Fragment() {
             val bundle = Bundle()
             val intent = Intent(this.context,ConfirmasiKerusakan::class.java)
             bundle.putParcelableArrayList("arrkerusakan",kerusakan)
+            bundle.putString("nama",nama)
+            bundle.putString("notlp",notlp)
             intent.putExtras(bundle)
             startActivity(intent)
         }

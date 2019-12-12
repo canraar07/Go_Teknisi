@@ -6,5 +6,9 @@ data class ResponseLoginModel (
     @SerializedName("id")
     val id: String?,
     @SerializedName("alamat")
-    val alaamt: String
+    val alaamt: String,
+    @SerializedName("phone")
+    val phone: String,
+    @SerializedName("nama")
+    val nama: String
 )

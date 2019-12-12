@@ -48,7 +48,11 @@ class MainActivity : AppCompatActivity() {
                                             val id = it.item?.get(i)!!.id
                                             if(id != null){
                                                 progressBar2.isVisible=false
+                                                val bundle = Bundle()
+                                                bundle.putString("nama",it.item[i].nama)
+                                                bundle.putString("notlp",it.item[i].phone)
                                                 val intent = Intent(context, DashboarCusActivity::class.java)
+                                                intent.putExtras(bundle)
                                                 startActivity(intent)
                                             }
                                         }
