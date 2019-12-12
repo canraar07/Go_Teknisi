@@ -17,6 +17,7 @@ import com.goteknisi.adapter.AdapterKerusakan
 import com.goteknisi.utils.DataConfirmPage
 import com.goteknisi.utils.DatakerusakanCus
 import kotlinx.android.synthetic.main.confirmasi_kerusakan_fragment.*
+import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -60,6 +61,7 @@ class ConfirmasiKerusakanFragment : Fragment() {
         adapter.dataClear()
         arrkerusakan?.let { adapter.setData(it) }
         recylekkerusakan.adapter = adapter
+        calendarView.minDate=Date().time
         calendarView.isVisible=false
         containtTime.setOnClickListener {
             val mcurentTime = Calendar.getInstance()
