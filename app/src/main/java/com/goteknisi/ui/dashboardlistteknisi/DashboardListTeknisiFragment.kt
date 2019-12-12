@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.goteknisi.R
 import com.goteknisi.adapter.DashboardListAdapter
 import com.goteknisi.adapter.ListTeknisiAdapter
+import com.goteknisi.utils.DataConfirmPage
 import com.goteknisi.utils.DataKerusakan
 import com.goteknisi.utils.Datalis
 import kotlinx.android.synthetic.main.dashboard_list_teknisi_fragment.*
@@ -21,7 +22,16 @@ import kotlinx.android.synthetic.main.jenis_kerusakan_fragment.*
 class DashboardListTeknisiFragment : Fragment() {
 
     companion object {
-        fun newInstance() = DashboardListTeknisiFragment()
+        fun newInstance(
+            confirmKerusakan: ArrayList<DataConfirmPage>
+        ) : DashboardListTeknisiFragment{
+            val fragment = DashboardListTeknisiFragment()
+            val bundle = Bundle().apply {
+                putParcelableArrayList("confirmKerusakan",confirmKerusakan)
+            }
+            fragment.arguments = bundle
+            return fragment
+        }
     }
 
     private lateinit var viewModel: DashboardListTeknisiViewModel
@@ -36,6 +46,7 @@ class DashboardListTeknisiFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(DashboardListTeknisiViewModel::class.java)
+        val dataconfirm : java.util.ArrayList<DataConfirmPage>? = arguments?.getParcelableArrayList("confirmKerusakan")
         recycleTeknisi.layoutManager = GridLayoutManager(this.context, 2)
         val gridAdapter = ListTeknisiAdapter()
         progresLoading.isVisible = true

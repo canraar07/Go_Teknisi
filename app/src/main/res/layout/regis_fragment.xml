@@ -67,7 +67,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textfieldphone"
+        android:id="@+id/textfieldpalamat"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
@@ -94,7 +94,7 @@
         android:layout_marginStart="36dp"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textfieldphone"
+        app:layout_constraintTop_toBottomOf="@+id/textfieldpalamat"
         tools:ignore="MissingConstraints">
 
         <com.google.android.material.textfield.TextInputEditText

@@ -19,7 +19,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ConfirmasiKerusakan"></activity>
+        <activity android:name=".OrderActivity"></activity>
+        <activity android:name=".ConfirmasiKerusakan" />
         <activity android:name=".JenisKerusakanActivity" />
         <activity android:name=".DashboardListTeknisiActivity" />
         <activity android:name=".TeknisiDetailActivity" />

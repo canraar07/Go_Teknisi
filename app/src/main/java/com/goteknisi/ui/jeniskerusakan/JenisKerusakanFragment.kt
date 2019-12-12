@@ -4,6 +4,7 @@ import android.content.ClipData
 import android.content.Intent
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +16,7 @@ import com.goteknisi.ConfirmasiKerusakan
 import com.goteknisi.R
 import com.goteknisi.adapter.KerusakanAdapter
 import com.goteknisi.utils.DataKerusakan
+import com.goteknisi.utils.DatakerusakanCus
 import kotlinx.android.synthetic.main.jenis_kerusakan_fragment.*
 
 class JenisKerusakanFragment : Fragment() {
@@ -56,7 +58,12 @@ class JenisKerusakanFragment : Fragment() {
         list_kerusakan.layoutManager = LinearLayoutManager(this.activity)
         list_kerusakan.adapter = adapter
         bPriksa.setOnClickListener {
+            val kerusakan = adapter.getDataKerusakan()
+            Log.e("Data",kerusakan.toString())
+            val bundle = Bundle()
             val intent = Intent(this.context,ConfirmasiKerusakan::class.java)
+            bundle.putParcelableArrayList("arrkerusakan",kerusakan)
+            intent.putExtras(bundle)
             startActivity(intent)
         }
     }
