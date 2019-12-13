@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.goteknisi.DashboardListTeknisiActivity
@@ -91,6 +92,19 @@ class ConfirmasiKerusakanFragment : Fragment() {
             calendarView.isVisible=false
         }
         buttonPteknisi.setOnClickListener {
+            val text_tgl = textViewTgl.text
+            val text_jam = textTime.text
+            val text_alamat = editTextAlamat.text.toString()
+            if(text_tgl.isNullOrEmpty()){
+                Toast.makeText(this.context,"Tanggal tidak boleh kosong",Toast.LENGTH_LONG)
+                    .show()
+            }else if(text_jam.isNullOrEmpty()){
+                Toast.makeText(this.context,"Jam tidak boleh kosong",Toast.LENGTH_LONG)
+                    .show()
+            }else if(text_alamat.isNullOrEmpty()){
+                Toast.makeText(this.context,"Alamat tidak boleh kosong",Toast.LENGTH_LONG)
+                    .show()
+            }else{
             val tgl = "${textTime.text} / ${textViewTgl.text}"
             val almt = editTextAlamat.text.toString()
             confirmdata.add(
@@ -101,6 +115,7 @@ class ConfirmasiKerusakanFragment : Fragment() {
             bundle.putParcelableArrayList("datakerusakan",confirmdata)
             intent.putExtras(bundle)
             startActivity(intent)
+            }
         }
     }
 
