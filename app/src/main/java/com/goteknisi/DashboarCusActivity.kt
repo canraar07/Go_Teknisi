@@ -12,11 +12,13 @@ class DashboarCusActivity : AppCompatActivity() {
         setContentView(R.layout.dashboar_cus_activity)
         val nama = intent.getStringExtra("nama")
         val notlp = intent.getStringExtra("notlp")
+        val idcus = intent.getStringExtra("idcus")
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.container, DashboarCusFragment.newInstance(
                     nama,
-                    notlp
+                    notlp,
+                    idcus
                 ))
                 .commitNow()
         }

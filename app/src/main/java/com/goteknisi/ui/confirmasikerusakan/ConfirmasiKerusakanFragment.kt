@@ -27,13 +27,15 @@ class ConfirmasiKerusakanFragment : Fragment() {
         fun newInstance(
             array: ArrayList<DatakerusakanCus>,
             nama : String?,
-            notlp : String?
+            notlp : String?,
+            idcus : String?
             ) : ConfirmasiKerusakanFragment{
             val fragment = ConfirmasiKerusakanFragment()
             val bundle = Bundle().apply {
                 putParcelableArrayList("arrkerusakan",array)
                 putString("nama",nama)
                 putString("notlp",notlp)
+                putString("idcus",idcus)
             }
             fragment.arguments = bundle
             return fragment
@@ -56,6 +58,7 @@ class ConfirmasiKerusakanFragment : Fragment() {
         val arrkerusakan : java.util.ArrayList<DatakerusakanCus>? = arguments?.getParcelableArrayList("arrkerusakan")
         val nama = arguments?.getString("nama")
         val notlp = arguments?.getString("notlp")
+        val idcus = arguments?.getString("idcus")
         recylekkerusakan.layoutManager = LinearLayoutManager(this.activity)
         adapter = AdapterKerusakan()
         adapter.dataClear()
@@ -91,7 +94,7 @@ class ConfirmasiKerusakanFragment : Fragment() {
             val tgl = "${textTime.text} / ${textViewTgl.text}"
             val almt = editTextAlamat.text.toString()
             confirmdata.add(
-                DataConfirmPage("",nama,notlp,tgl,almt,arrkerusakan)
+                DataConfirmPage("",nama,notlp,tgl,almt,arrkerusakan,"",idcus)
             )
             val bundle = Bundle()
             val intent = Intent(this.context,DashboardListTeknisiActivity::class.java)

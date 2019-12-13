@@ -21,16 +21,19 @@ class DashboardListFragment : Fragment() {
     val lisdata = ArrayList<DataItem>()
     var nama = ""
     var notlp = ""
+    var idcus = ""
 
     companion object {
         fun newInstance(
             nama: String?,
-            notlp: String?
+            notlp: String?,
+            idcus : String?
         ) : DashboardListFragment{
             val fragment = DashboardListFragment()
             val bundle = Bundle().apply {
                 putString("nama",nama)
                 putString("notlp",notlp)
+                putString("idcus",idcus)
             }
             fragment.arguments = bundle
             return fragment
@@ -48,6 +51,7 @@ class DashboardListFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         nama = arguments?.getString("nama").toString()
         notlp = arguments?.getString("notlp").toString()
+        idcus = arguments?.getString("idcus").toString()
         creatDumy()
         recyleMenu.layoutManager = GridLayoutManager(this.context, 2)
         val gridAdapter = DashboardListAdapter(lisdata)
@@ -56,7 +60,7 @@ class DashboardListFragment : Fragment() {
 
     fun creatDumy() {
         for (i in arrayName.indices) {
-            lisdata.add(DataItem(arrayName[i], arrayImg[i],nama,notlp))
+            lisdata.add(DataItem(arrayName[i], arrayImg[i],nama,notlp,idcus))
         }
     }
 

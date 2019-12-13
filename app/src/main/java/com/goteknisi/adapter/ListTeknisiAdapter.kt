@@ -55,7 +55,9 @@ class ListTeknisiAdapter:
                         dataKerusakan[0].nocus,
                         dataKerusakan[0].tgl,
                         dataKerusakan[0].almt,
-                        dataKerusakan[0].kerusakan
+                        dataKerusakan[0].kerusakan,
+                        list[position].kodemitra,
+                        dataKerusakan[0].idcus
                     )
                 )
                 val bundle = Bundle()

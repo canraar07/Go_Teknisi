@@ -34,7 +34,7 @@ class DashboardListTeknisiViewModel : ViewModel() {
                                         val kodemitra = it.item[i].kodemitra
                                         val namamitra = it.item[i].namamitra
                                         val image = it.item[i].image
-                                        listmitra.add(Datalis(namamitra,image))
+                                        listmitra.add(Datalis(namamitra,image,kodemitra.toString()))
                                     }
                                 }
                                 listdata.postValue(listmitra)

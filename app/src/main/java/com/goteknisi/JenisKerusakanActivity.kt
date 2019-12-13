@@ -11,11 +11,13 @@ class JenisKerusakanActivity : AppCompatActivity() {
         setContentView(R.layout.jenis_kerusakan_activity)
         var nama = intent.getStringExtra("nama")
         var notlp = intent.getStringExtra("notlp")
+        var idcus = intent.getStringExtra("idcus")
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.container, JenisKerusakanFragment.newInstance(
                     nama,
-                    notlp
+                    notlp,
+                    idcus
                 ))
                 .commitNow()
         }

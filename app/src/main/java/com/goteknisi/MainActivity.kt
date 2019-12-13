@@ -51,6 +51,7 @@ class MainActivity : AppCompatActivity() {
                                                 val bundle = Bundle()
                                                 bundle.putString("nama",it.item[i].nama)
                                                 bundle.putString("notlp",it.item[i].phone)
+                                                bundle.putString("idcus",it.item[i].id)
                                                 val intent = Intent(context, DashboarCusActivity::class.java)
                                                 intent.putExtras(bundle)
                                                 startActivity(intent)

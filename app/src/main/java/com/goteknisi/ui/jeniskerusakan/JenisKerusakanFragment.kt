@@ -25,12 +25,14 @@ class JenisKerusakanFragment : Fragment() {
     companion object {
         fun newInstance(
             nama: String?,
-            notlp: String?
+            notlp: String?,
+            idcus: String?
         ) : JenisKerusakanFragment{
             val fragment = JenisKerusakanFragment()
             val bundle = Bundle().apply {
                 putString("nama",nama)
                 putString("notlp",notlp)
+                putString("idcus",idcus)
             }
             fragment.arguments = bundle
             return fragment
@@ -53,6 +55,7 @@ class JenisKerusakanFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(JenisKerusakanViewModel::class.java)
         val nama = arguments?.getString("nama")
         val notlp = arguments?.getString("notlp")
+        val idcus = arguments?.getString("idcus")
         adapter = KerusakanAdapter()
         adapter.dataClear()
         progressBar.isVisible=true
@@ -85,6 +88,7 @@ class JenisKerusakanFragment : Fragment() {
             bundle.putParcelableArrayList("arrkerusakan",kerusakan)
             bundle.putString("nama",nama)
             bundle.putString("notlp",notlp)
+            bundle.putString("idcus",idcus)
             intent.putExtras(bundle)
             startActivity(intent)
         }

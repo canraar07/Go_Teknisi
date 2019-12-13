@@ -40,6 +40,7 @@ class DashboardListAdapter(val listValue: ArrayList<DataItem>) :
                 val bundle = Bundle()
                 bundle.putString("nama",listValue[position].namacus)
                 bundle.putString("notlp",listValue[position].notlp)
+                bundle.putString("idcus",listValue[position].idcus)
                 val intent = Intent(holder.itemView.context,JenisKerusakanActivity::class.java)
                 intent.putExtras(bundle)
                 holder.itemView.context.startActivity(intent)

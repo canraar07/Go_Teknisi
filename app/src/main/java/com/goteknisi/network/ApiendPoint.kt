@@ -1,9 +1,6 @@
 package com.goteknisi.network
 
-import com.goteknisi.network.response.ResponseKerusakan
-import com.goteknisi.network.response.ResponseListMitra
-import com.goteknisi.network.response.ResponseLogin
-import com.goteknisi.network.response.ResponseRegis
+import com.goteknisi.network.response.*
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -29,5 +26,16 @@ interface ApiendPoint {
         @Query("nama") nama : String?,
         @Query("phone") phone : String?
     ): Call<ResponseRegis>
+
+    @GET("bookingOrder.php")
+    fun Order(
+        @Query("namatek") namatek : String?,
+        @Query("namacus") namacus : String?,
+        @Query("tglperbaikan") tglperbaikan : String?,
+        @Query("alamatcus") alamatcus : String?,
+        @Query("jeniskerusakan") jeniskerusakan: String?,
+        @Query("codeteknisi") codeteknisi : String?,
+        @Query("idcustomer") idcustomer : String?
+    ): Call<ResponseOrder>
 
 }

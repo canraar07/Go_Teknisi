@@ -14,13 +14,15 @@ class ConfirmasiKerusakan : AppCompatActivity() {
         val arrkerusakan = intent.getParcelableArrayListExtra<DatakerusakanCus>("arrkerusakan")
         val nama = intent.getStringExtra("nama")
         val notlp = intent.getStringExtra("notlp")
+        val idcus = intent.getStringExtra("idcus")
         Log.e("Data",arrkerusakan.toString())
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.container, ConfirmasiKerusakanFragment.newInstance(
                     arrkerusakan,
                     nama,
-                    notlp
+                    notlp,
+                    idcus
                 ))
                 .commitNow()
         }

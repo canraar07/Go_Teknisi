@@ -13,12 +13,14 @@ class DashboarCusFragment : Fragment() {
     companion object {
         fun newInstance(
             nama: String?,
-            notlp: String?
+            notlp: String?,
+            idcus: String?
         ) : DashboarCusFragment{
             val fragment = DashboarCusFragment()
             val bundle = Bundle().apply {
                 putString("nama",nama)
                 putString("notlp",notlp)
+                putString("idcus",idcus)
             }
             fragment.arguments = bundle
             return fragment
@@ -28,6 +30,7 @@ class DashboarCusFragment : Fragment() {
     private lateinit var viewModel: DashboarCusViewModel
     var nama = ""
     var notlp = ""
+    var idcus = ""
 
     private val mOnNavigationItemSelectedListener =
         BottomNavigationView.OnNavigationItemSelectedListener { item ->
@@ -36,7 +39,8 @@ class DashboarCusFragment : Fragment() {
                     childFragmentManager.beginTransaction()
                         .replace(R.id.constMainAct, DashboardListFragment.newInstance(
                             nama,
-                            notlp
+                            notlp,
+                            idcus
                         ))
                         .commitNow()
                     return@OnNavigationItemSelectedListener true
@@ -67,12 +71,14 @@ class DashboarCusFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(DashboarCusViewModel::class.java)
         nama = arguments?.getString("nama").toString()
         notlp = arguments?.getString("notlp").toString()
+        idcus = arguments?.getString("idcus").toString()
         bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         if (savedInstanceState == null) {
             childFragmentManager.beginTransaction()
                 .replace(R.id.constMainAct, DashboardListFragment.newInstance(
                     nama,
-                    notlp
+                    notlp,
+                    idcus
                 ))
                 .commitNow()
         }

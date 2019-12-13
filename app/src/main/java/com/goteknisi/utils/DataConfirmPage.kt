@@ -10,5 +10,7 @@ data class DataConfirmPage (
     val nocus : String? = null,
     val tgl : String? = null,
     val almt : String? = null,
-    val kerusakan : ArrayList<DatakerusakanCus>? = null
+    val kerusakan : ArrayList<DatakerusakanCus>? = null,
+    val kodemitra : String? = null,
+    val idcus : String? = null
 ) : Parcelable
