@@ -52,7 +52,12 @@ class DashboarCusFragment : Fragment() {
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.navigation_history -> {
-
+                    childFragmentManager.beginTransaction()
+                        .replace(R.id.constMainAct, HalamanBookingCustomer.newInstance(
+                            idcus
+                        ))
+                        .commitNow()
+                    return@OnNavigationItemSelectedListener true
                 }
             }
             false

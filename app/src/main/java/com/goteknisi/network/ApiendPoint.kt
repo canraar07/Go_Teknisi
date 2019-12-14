@@ -39,4 +39,9 @@ interface ApiendPoint {
         @Query("nocus") nocus : String?
     ): Call<ResponseOrder>
 
+    @GET("statusOrder.php")
+    fun StatusOrder(
+        @Query("idcustomer") idcustomer : String?
+    ): Call<ResponseStatusOrder>
+
 }
