@@ -36,7 +36,7 @@ class DashboardListAdapter(val listValue: ArrayList<DataItem>) :
         holder.textview.text = listValue[position].name
         holder.cardMenu.setOnClickListener {
             val textContent = holder.textview.text
-            if(textContent == "Ketahui Kerusakan Mu"){
+            if(textContent == "Pilih Kerusakan"){
                 val bundle = Bundle()
                 bundle.putString("nama",listValue[position].namacus)
                 bundle.putString("notlp",listValue[position].notlp)

@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.fragment_dashboard_list.*
 
 class DashboardListFragment : Fragment() {
 
-    private val arrayName = arrayOf("Ketahui Kerusakan Mu", "Lihat Teknisi")
+    private val arrayName = arrayOf("Pilih Kerusakan", "Lihat Teknisi")
     private val arrayImg = intArrayOf(R.drawable.question, R.drawable.technician)
     val lisdata = ArrayList<DataItem>()
     var nama = ""
