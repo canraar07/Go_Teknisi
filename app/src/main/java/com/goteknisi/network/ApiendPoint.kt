@@ -44,4 +44,7 @@ interface ApiendPoint {
         @Query("idcustomer") idcustomer : String?
     ): Call<ResponseStatusOrder>
 
+    @GET("maps.php")
+    fun getListMap(): Call<ResponseMaps>
+
 }
