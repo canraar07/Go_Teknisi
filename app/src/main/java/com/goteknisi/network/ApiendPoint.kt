@@ -35,7 +35,8 @@ interface ApiendPoint {
         @Query("alamatcus") alamatcus : String?,
         @Query("jeniskerusakan") jeniskerusakan: String?,
         @Query("codeteknisi") codeteknisi : String?,
-        @Query("idcustomer") idcustomer : String?
+        @Query("idcustomer") idcustomer : String?,
+        @Query("nocus") nocus : String?
     ): Call<ResponseOrder>
 
 }

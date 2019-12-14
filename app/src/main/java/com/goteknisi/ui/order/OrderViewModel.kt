@@ -24,7 +24,7 @@ class OrderViewModel : ViewModel() {
         BaseApi.creatService(ApiendPoint::class.java)
             .Order(dataOrder?.get(0)?.namateknisi,dataOrder?.get(0)?.namacus,dataOrder?.get(0)?.tgl,
                 dataOrder?.get(0)?.almt,datakerusakan.toString(),dataOrder?.get(0)?.kodemitra,
-                dataOrder?.get(0)?.idcus)
+                dataOrder?.get(0)?.idcus,dataOrder?.get(0)?.nocus)
             .enqueue(object : retrofit2.Callback<ResponseOrder>{
                 override fun onFailure(call: Call<ResponseOrder>, t: Throwable) {
                     Log.e("eror","Gagal")
