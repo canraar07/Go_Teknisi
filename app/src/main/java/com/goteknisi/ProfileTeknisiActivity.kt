@@ -44,9 +44,7 @@ class ProfileTeknisiActivity : AppCompatActivity() {
                                         .load(res[0].image)
                                         .into(imageProfile)
                                     textNmamatekprofile.text=res[0].namamitra
-                                    textNotexProfile.text=res[0].nomortlp
                                     textKeahlian.text=res[0].keahlian
-                                    ratingBar.rating= 1F
                                 }else{
                                     Toast.makeText(context,"Gagagal",Toast.LENGTH_LONG)
                                         .show()
