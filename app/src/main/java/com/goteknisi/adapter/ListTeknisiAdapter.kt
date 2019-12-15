@@ -11,6 +11,7 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.goteknisi.OrderActivity
+import com.goteknisi.ProfileTeknisiActivity
 import com.goteknisi.R
 import com.goteknisi.utils.DataConfirmPage
 import com.goteknisi.utils.Datalis
@@ -63,6 +64,12 @@ class ListTeknisiAdapter:
                 val bundle = Bundle()
                 val intent = Intent(holder.itemView.context, OrderActivity::class.java)
                 bundle.putParcelableArrayList("dataOrder", dataOrder)
+                intent.putExtras(bundle)
+                holder.itemView.context.startActivity(intent)
+            }else{
+                val bundle = Bundle()
+                val intent = Intent(holder.itemView.context,ProfileTeknisiActivity::class.java)
+                bundle.putString("kodemitra",list[position].kodemitra)
                 intent.putExtras(bundle)
                 holder.itemView.context.startActivity(intent)
             }

@@ -47,4 +47,9 @@ interface ApiendPoint {
     @GET("maps.php")
     fun getListMap(): Call<ResponseMaps>
 
+    @GET("detailmitra.php")
+    fun getProfileMitra(
+        @Query("kodemitra") kodemitra : String?
+    ): Call<ResponseProfileMitra>
+
 }
