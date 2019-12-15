@@ -7,9 +7,9 @@
     <item
         android:id="@+id/navigation_nearby"
         android:icon="@drawable/ic_my_location"
-        android:title="Nearby" />
+        android:title="Lihat Toko Terdekat" />
     <item
         android:id="@+id/navigation_history"
-        android:icon="@drawable/ic_star_white"
-        android:title="Order Status" />
+        android:icon="@drawable/ic_library_books_black"
+        android:title="Booking" />
 </menu>
